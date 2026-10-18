@@ -8,6 +8,13 @@ header {
   text-align: center;
 }
 
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
 h1, h2, h3, h4 {
   line-height: 1.2;
   margin: 0.5em 0;
@@ -31,10 +38,19 @@ h4 {
   font-size: 1.25rem;
 }
 
+nav {
+  display: inline-block;
+}
+
 header img {
   display: block;
-  width: 50%;
-  max-width: 50%;
+  width: 25%;
+  max-width: 220px;
   height: auto;
-  margin: 1rem auto;
+  margin: 0.75rem auto;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
 }
