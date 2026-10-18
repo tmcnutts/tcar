@@ -1,6 +1,40 @@
+body {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+header {
+  text-align: center;
+}
+
 h1, h2, h3, h4 {
-  font-size: 2rem;
   line-height: 1.2;
   margin: 0.5em 0;
   font-weight: 600;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+header img {
+  display: block;
+  width: 50%;
+  max-width: 50%;
+  height: auto;
+  margin: 1rem auto;
 }
