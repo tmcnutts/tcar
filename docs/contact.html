@@ -9,6 +9,28 @@
   <header>
     <h1>Contact Information</h1>
     <h1>Volunteer/Foster Applications</h1>
+    <form action="#" method="post">
+      <label for="full-name">Full Name</label><br>
+      <input type="text" id="full-name" name="full-name" placeholder="Your full name" required><br><br>
+
+      <label for="email">Email Address</label><br>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required><br><br>
+
+      <label for="phone">Phone Number</label><br>
+      <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567"><br><br>
+
+      <label for="interest">I am interested in:</label><br>
+      <select id="interest" name="interest">
+        <option value="volunteer">Volunteer</option>
+        <option value="foster">Foster</option>
+        <option value="both">Both</option>
+      </select><br><br>
+
+      <label for="availability">Availability</label><br>
+      <textarea id="availability" name="availability" rows="4" placeholder="Tell us about your availability and experience"></textarea><br><br>
+
+      <button type="submit">Submit Application</button>
+    </form>
     <p>Complete the form above to apply as a TCAR Volunteer or to foster home.</p>
     <h1>Service Area</h1>
     <p>We proudly serve the Twin City area and accept case by case rescues further away.</p>
