@@ -4,30 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact</title>
+  <style>
+    /* Minimal styles for form feedback */
+    .error { color: #b00020; }
+    .success { color: #006400; }
+    .field { margin-bottom: 0.75rem; }
+    label { display:block; font-weight:600; }
+    input, select, textarea { width:100%; max-width:420px; padding:8px; }
+  </style>
 </head>
 <body>
   <header>
     <h1>Contact Information</h1>
     <h1>Volunteer/Foster Applications</h1>
-    <form action="#" method="post">
-      <label for="full-name">Full Name</label><br>
-      <input type="text" id="full-name" name="full-name" placeholder="Your full name" required><br><br>
+    <form id="volunteer-form" action="#" method="post" novalidate>
+      <div id="form-messages" aria-live="polite"></div>
 
-      <label for="email">Email Address</label><br>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required><br><br>
+      <div class="field">
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" name="fullName" placeholder="Your full name" required>
+        <div class="error" id="error-full-name" aria-live="polite"></div>
+      </div>
 
-      <label for="phone">Phone Number</label><br>
-      <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567"><br><br>
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <div class="error" id="error-email" aria-live="polite"></div>
+      </div>
 
-      <label for="interest">I am interested in:</label><br>
-      <select id="interest" name="interest">
-        <option value="volunteer">Volunteer</option>
-        <option value="foster">Foster</option>
-        <option value="both">Both</option>
-      </select><br><br>
+      <div class="field">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+        <div class="error" id="error-phone" aria-live="polite"></div>
+      </div>
 
-      <label for="availability">Availability</label><br>
-      <textarea id="availability" name="availability" rows="4" placeholder="Tell us about your availability and experience"></textarea><br><br>
+      <div class="field">
+        <label for="interest">I am interested in:</label>
+        <select id="interest" name="interest">
+          <option value="volunteer">Volunteer</option>
+          <option value="foster">Foster</option>
+          <option value="both">Both</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="availability">Availability / Experience</label>
+        <textarea id="availability" name="availability" rows="4" placeholder="Tell us about your availability and experience" required></textarea>
+        <div class="error" id="error-availability" aria-live="polite"></div>
+      </div>
 
       <button type="submit">Submit Application</button>
     </form>
@@ -56,5 +80,94 @@
   <footer>
     <p>&copy; 2026 Our Website</p>
   </footer>
+
+  <script>
+    // Client-side validation and submit via fetch to server endpoint /submit
+    (function(){
+      const form = document.getElementById('volunteer-form');
+      const msgs = document.getElementById('form-messages');
+
+      function clearErrors(){
+        ['full-name','email','phone','availability'].forEach(id => {
+          const el = document.getElementById('error-' + id);
+          if(el) el.textContent = '';
+        });
+        msgs.textContent = '';
+        msgs.className = '';
+      }
+
+      function validate(){
+        clearErrors();
+        let valid = true;
+        const fullName = document.getElementById('full-name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const availability = document.getElementById('availability').value.trim();
+
+        if(fullName.length < 2){
+          document.getElementById('error-full-name').textContent = 'Please enter your full name.';
+          valid = false;
+        }
+
+        // Basic email regex (keeps it simple but effective)
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailRe.test(email)){
+          document.getElementById('error-email').textContent = 'Please enter a valid email address.';
+          valid = false;
+        }
+
+        // Optional phone validation (if provided, check digits)
+        if(phone.length > 0){
+          const phoneDigits = phone.replace(/[^0-9]/g,'');
+          if(phoneDigits.length < 7){
+            document.getElementById('error-phone').textContent = 'Please enter a valid phone number.';
+            valid = false;
+          }
+        }
+
+        if(availability.length < 10){
+          document.getElementById('error-availability').textContent = 'Please provide a bit more info about your availability/experience (10+ characters).';
+          valid = false;
+        }
+
+        return valid;
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(!validate()) return;
+
+        const payload = {
+          fullName: document.getElementById('full-name').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          interest: document.getElementById('interest').value,
+          availability: document.getElementById('availability').value.trim()
+        };
+
+        msgs.textContent = 'Sending...';
+        msgs.className = '';
+
+        fetch('/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(async resp => {
+          if(!resp.ok){
+            const body = await resp.json().catch(()=>({}));
+            throw new Error(body && body.error ? body.error : 'Failed to submit form');
+          }
+          return resp.json();
+        }).then(data => {
+          msgs.textContent = 'Application submitted — thank you!';
+          msgs.className = 'success';
+          form.reset();
+        }).catch(err => {
+          msgs.textContent = 'Submission failed: ' + err.message;
+          msgs.className = 'error';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
