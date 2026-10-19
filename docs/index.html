@@ -1,64 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Twin Cities Animal Rescue(TCAR)</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Twin Cities Animal Rescue — adopt, foster, volunteer, or donate to help animals find safe forever homes." />
+  <title>Twin Cities Animal Rescue (TCAR)</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="rescue-logo_c.png" />
 </head>
 <body>
-  <header>
-    <img src="rescue-logo_c.png" alt="TCAR rescue logo" style="display: block; width: 50%; max-width: 50%; height: auto; margin: 1rem auto;">
+  <!-- Rebuild trigger: no content changes, only this comment to force Pages to rebuild -->
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        <figure class="logo">
+          <img src="rescue-logo_c.png" alt="Twin Cities Animal Rescue logo" width="160" />
+        </figure>
+      </a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <h1>We accept animals that need saving and get them ready for their forever home.</h1>
-    <h1>Impact Statements</h1>
-    <ul>
-      <li>In the last year, TCAR provided emergency foster care to 142 stray, injured, and neglected animals, helping each one regain health and trust.</li>
-      <li>Our team successfully placed 89 dogs, 57 cats, and 23 small animals into permanent homes, creating brighter futures for pets and families alike.</li>
-      <li>Through community outreach and medical care, we treated 310 animals for illness, injury, and vaccinations, reducing suffering and preventing overcrowding in local shelters.</li>
-      <li>Every donation and volunteer hour helped rescue a new life—our foster network alone supported 174 animals while they waited for adoption.</li>
-    </ul>
-
-    <h2>How You Can Help</h2>
-    <p>Choose the way that fits your time, energy, and resources.</p>
-
-    <section style="display:grid; grid-template-columns:repeat(2, minmax(220px, 1fr)); gap:2rem; margin-top:1rem;">
-      <div>
-        <h3>Hands-on Help</h3>
-        <ul>
-          <li><strong>Adopt:</strong> Give a rescued animal a safe, loving forever home.</li>
-          <li><strong>Foster:</strong> Short-term foster families help animals heal and adjust before adoption.</li>
-          <li><strong>Volunteer:</strong> Help with transport, animal care, events, or shelter support.</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Support & Outreach</h3>
-        <ul>
-          <li><strong>Donate:</strong> Help cover food, medical care, and emergency treatment for rescued animals.</li>
-          <li><strong>Supply a Need:</strong> Donate food, blankets, toys, collars, and other essentials.</li>
-          <li><strong>Share:</strong> Post adoptable pets and event updates to help more animals get noticed.</li>
-        </ul>
+  <main class="container" id="main">
+    <section class="hero">
+      <h1>Rescue. Heal. Rehome.</h1>
+      <p class="lead">We provide emergency foster care and medical support to animals in need, preparing them for loving, permanent homes.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="about.html">Adopt</a>
+        <a class="btn" href="contact.html">Foster / Volunteer</a>
+        <a class="btn" href="services.html">Donate</a>
       </div>
     </section>
 
-    <p style="margin-top:1rem;">Questions or ready to help? <a href="contact.html">Contact us</a> or learn more through <a href="services.html">our services</a>.</p>
+    <section class="impact" aria-labelledby="impact-heading">
+      <h2 id="impact-heading">Impact (last 12 months)</h2>
+      <ul class="impact-list">
+        <li><strong>142</strong> animals received emergency foster care</li>
+        <li><strong>169</strong> animals placed into permanent homes</li>
+        <li><strong>310</strong> medical treatments & vaccinations provided</li>
+      </ul>
+    </section>
 
-    <nav>
-      <a href="about.html">About TCAR</a>
-      <span> | </span>
-      <a href="contact.html">Contact us!</a>
-      <span> | </span>
-      <a href="services.html">Services We Offer</a>
-      <span> | </span>
-      <a href="server/">Server</a>
-    </nav>
+    <section class="help" aria-labelledby="help-heading">
+      <h2 id="help-heading">How You Can Help</h2>
+      <p class="help-intro">Short, actionable ways to support TCAR.</p>
+
+      <div class="help-grid">
+        <div class="help-column">
+          <h3>Hands-on Help</h3>
+          <ul>
+            <li><strong>Adopt:</strong> Complete our adoption form and visit weekend events.</li>
+            <li><strong>Foster:</strong> Short-term medical and behavior fosters (2–8 weeks). We provide supplies.</li>
+            <li><strong>Volunteer:</strong> Transport, animal care, or event shifts (2–4 hours).</li>
+          </ul>
+        </div>
+
+        <div class="help-column">
+          <h3>Support & Outreach</h3>
+          <ul>
+            <li><strong>Donate:</strong> One-time or monthly gifts for medical care and supplies.</li>
+            <li><strong>Supply Drives:</strong> Drop off food, blankets, leashes at intake hours.</li>
+            <li><strong>Share:</strong> Post adoptable pets and tag @TCAR to amplify reach.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="support-cta">Ready to help? <a href="contact.html">Contact us</a> or view <a href="services.html">Services</a> for details.</p>
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Twin Cities Animal Rescue (TCAR)</p>
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; 2026 Twin Cities Animal Rescue (TCAR) &middot; <a href="contact.html">Contact</a></p>
   </footer>
 </body>
 </html>
