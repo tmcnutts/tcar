@@ -1,11 +1,22 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const app = express();
 
-// Basic CORS headers in case you're serving the frontend from another origin
+const ADMIN_TOKEN = process.env.ADMIN_TOKEN || null;
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || '').split(',').map(s => s.trim()).filter(Boolean);
+
+// CORS / headers handling
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  const origin = req.headers.origin;
+  if (ALLOWED_ORIGINS.length) {
+    if (origin && ALLOWED_ORIGINS.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+  }
+  // If no ALLOWED_ORIGINS provided, we do not set Access-Control-Allow-Origin
+  // so browser will enforce same-origin behavior by default.
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
   if (req.method === 'OPTIONS') return res.sendStatus(204);
   next();
@@ -44,8 +55,25 @@ app.post('/submit', (req, res) => {
   return res.json({ success: true, message: 'Submission received', entryId: entry.id });
 });
 
-// Endpoint to view submissions (for local testing). Remove or protect in production.
-app.get('/_submissions', (req, res) => {
+function requireAdmin(req, res, next) {
+  if (!ADMIN_TOKEN) {
+    return res.status(403).json({ error: 'Admin access is not enabled on this server.' });
+  }
+
+  const auth = req.headers.authorization || '';
+  if (auth.startsWith('Bearer ')) {
+    const token = auth.slice(7);
+    if (token === ADMIN_TOKEN) return next();
+  }
+
+  // allow token via query param for convenience over curl: /_submissions?token=...
+  if (req.query && req.query.token === ADMIN_TOKEN) return next();
+
+  return res.status(401).json({ error: 'Unauthorized' });
+}
+
+// Endpoint to view submissions (for local testing). Protected by ADMIN_TOKEN.
+app.get('/_submissions', requireAdmin, (req, res) => {
   res.json({ count: submissions.length, submissions });
 });
 
