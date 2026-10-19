@@ -1,31 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="TCAR services — adoption, fostering, volunteering, and donation support." />
+  <title>Services — TCAR</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="rescue-logo_c.png" />
+  <style>
+    /* Basic page layout consistent with contact/about pages */
+    ul { list-style: none; padding-left: 0; margin-left: 0; }
+    .logo img { width: 320px; max-width: 100%; height: auto; display: block; }
+    .container { max-width: 960px; margin: 0 auto; padding: 1rem; }
+    .hero { text-align: center; padding: 1rem 0; }
+    .lead { color: #333; }
+    .btn { display:inline-block; padding:0.5rem 0.75rem; border-radius:6px; background:#eee; text-decoration:none; color:#000; }
+    .btn.primary { background:#0b76d1; color:#fff; }
+
+    .services-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1rem; }
+    .service-card { border:1px solid #e5e7eb; border-radius:8px; padding:1rem; background:#fff; }
+    .service-card h3 { margin-top:0; }
+
+    nav.top { margin-top: 1.25rem; text-align:center; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Services Offered</h1>
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        <figure class="logo">
+          <img src="rescue-logo_c.png" alt="Twin Cities Animal Rescue logo" width="320" />
+        </figure>
+      </a>
+    </nav>
   </header>
 
-  <main>
-    <h2>Adoptions</h2>
-    <p>Describe the adoption process in moderate detail</p>
-    
-    <h2>Fostering Animals</h2>
-    <p>Describe the fostering process in moderate detail</p>
+  <main class="container" id="main">
+    <section class="hero">
+      <div class="hero-cta">
+        <a class="btn primary" href="index.html">Home</a>
+        <a class="btn" href="about.html">TCAR's Story</a>
+        <a class="btn" href="contact.html">Application Form</a>
+      </div>
+      <h1>Services We Offer</h1>
+      <p class="lead">Adoption, fostering, volunteer programs, medical support coordination, and donation processing to keep animals safe and healthy.</p>
+    </section>
 
-    <h2>Volunteering</h2>
-    <p>Describe volunteer roles and what they do</p>
+    <section class="services" aria-labelledby="services-heading">
+      <h2 id="services-heading">Our Services</h2>
+      <div class="services-grid">
+        <article class="service-card">
+          <h3>Adoption Support</h3>
+          <p>We screen adopters, manage meet-and-greets, and provide post-adoption resources to help new families succeed.</p>
+        </article>
+
+        <article class="service-card">
+          <h3>Foster Care</h3>
+          <p>Short-term medical and behavior fosters receive supplies and veterinary coordination while animals recover and prepare for adoption.</p>
+        </article>
+
+        <article class="service-card">
+          <h3>Medical Assistance</h3>
+          <p>Partner clinics provide diagnostics, surgeries, and follow-up care funded in part by our medical aid program.</p>
+        </article>
+
+        <article class="service-card">
+          <h3>Volunteer Programs</h3>
+          <p>Opportunities include transport, animal care, events, and administrative support. Training is provided for new volunteers.</p>
+        </article>
+
+        <article class="service-card">
+          <h3>Supply Drives & Donations</h3>
+          <p>We accept and distribute food, bedding, and supplies; monetary donations help cover medical costs for high-need animals.</p>
+        </article>
+
+        <article class="service-card">
+          <h3>Community Outreach</h3>
+          <p>Education, free clinics, and partnership programs help reduce intake needs and support responsible pet guardianship.</p>
+        </article>
+      </div>
+    </section>
+
     <nav class="top">
-      <p><a href="about.html">TCAR's Story</a> · <a href="contact.html">Application Form</a> · <a href="services.html">Services We Offer</a></p>
+      <div class="hero-cta">
+        <a class="btn primary" href="index.html">Home</a>
+        <a class="btn" href="about.html">TCAR's Story</a>
+        <a class="btn" href="contact.html">Application Form</a>
+      </div>
     </nav>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Our Website</p>
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; 2026 Twin Cities Animal Rescue (TCAR) · <a href="contact.html">Contact</a></p>
   </footer>
 </body>
 </html>
