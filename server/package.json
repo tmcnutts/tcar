@@ -1,1 +1,12 @@
-
+{
+  "name": "tcar-server",
+  "version": "1.0.0",
+  "description": "Simple server to accept volunteer/foster applications and save them to disk",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
