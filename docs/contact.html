@@ -1,89 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Contact Twin Cities Animal Rescue — apply to adopt, foster, volunteer, or reach our team." />
+  <title>Contact & Applications — TCAR</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="rescue-logo_c.png" />
   <style>
-    /* Minimal styles for form feedback */
-    .error { color: #b00020; }
-    .success { color: #006400; }
+    /* Match site layout (same as about/index) */
+    ul { list-style: none; padding-left: 0; margin-left: 0; }
+    .logo img { width: 320px; max-width: 100%; height: auto; display: block; }
+    .container { max-width: 960px; margin: 0 auto; padding: 1rem; }
+    .hero { text-align: left; padding: 1rem 0; }
+    .lead { color: #333; }
     .field { margin-bottom: 0.75rem; }
     label { display:block; font-weight:600; }
     input, select, textarea { width:100%; max-width:420px; padding:8px; }
+    .btn { display:inline-block; padding:0.5rem 0.75rem; border-radius:6px; background:#eee; text-decoration:none; color:#000; }
+    .btn.primary { background:#0b76d1; color:#fff; }
+    nav.top { margin-top: 1.25rem; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Contact Information</h1>
-    <h1>Application to Adopt, Foster and Volunteer</h1>
-    <form id="volunteer-form" action="#" method="post" novalidate>
-      <div id="form-messages" aria-live="polite"></div>
-
-      <div class="field">
-        <label for="full-name">Full Name</label>
-        <input type="text" id="full-name" name="fullName" placeholder="Your full name" required>
-        <div class="error" id="error-full-name" aria-live="polite"></div>
-      </div>
-
-      <div class="field">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-        <div class="error" id="error-email" aria-live="polite"></div>
-      </div>
-
-      <div class="field">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
-        <div class="error" id="error-phone" aria-live="polite"></div>
-      </div>
-
-      <div class="field">
-        <label for="interest">I Want to:</label>
-        <select id="interest" name="interest">
-          <option value="adopt">Adopt</option>
-          <option value="foster">Foster</option>
-          <option value="volunteer">Volunteer</option>
-          <option value="all">All of the above</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="availability">Availability / Additional Information</label>
-        <textarea id="availability" name="availability" rows="4" placeholder="Tell us about your availability and experience" required></textarea>
-        <div class="error" id="error-availability" aria-live="polite"></div>
-      </div>
-
-      <button type="submit">Submit Application</button>
-    </form>
-    <p>Complete the form above to apply as a TCAR Volunteer or to foster home.</p>
-    <h1>Service Area</h1>
-    <p>We proudly serve the Twin City area and accept case by case rescues further away.</p>
+  <!-- Rebuild trigger: Pages refresh #2 -->
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        <figure class="logo">
+          <img src="rescue-logo_c.png" alt="Twin Cities Animal Rescue logo" width="320" />
+        </figure>
+      </a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <h2>Inquiries</h2>
-    <p>
-      Please send us an email at
-      <a href="mailto:TCAR@rescue.com">TCAR@rescue.com</a>
-      or call us at
-      <a href="tel:+15551234567">(555) 123-4567</a>.
-    </p>
+  <main class="container" id="main">
+    <section class="hero">
+      <div class="hero-cta">
+        <a class="btn primary" href="about.html">TCAR's Story</a>
+        <a class="btn" href="contact.html">Application Form</a>
+        <a class="btn" href="services.html">Services We Offer</a>
+      </div>
+      <h1>Contact & Application</h1>
+      <p class="lead">Use the form below to apply to adopt, foster, or volunteer with TCAR, or reach out for inquiries.</p>
+    </section>
 
-    <h2>Office Hours</h2>
-    <p>Open Monday-Saturday, 8 A.M.-9 P.M.</p>
+    <section class="apply" aria-labelledby="apply-heading">
+      <h2 id="apply-heading">Application</h2>
+      <form id="volunteer-form" action="#" method="post" novalidate>
+        <div id="form-messages" aria-live="polite"></div>
 
-    <nav>
-      <p><a href="index.html">Back to home</a> | <a href="about.html">TCAR's Story</a> | <a href="services.html">Services We Offer</a></p>
+        <div class="field">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="fullName" placeholder="Your full name" required>
+          <div class="error" id="error-full-name" aria-live="polite"></div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          <div class="error" id="error-email" aria-live="polite"></div>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+          <div class="error" id="error-phone" aria-live="polite"></div>
+        </div>
+
+        <div class="field">
+          <label for="interest">I am interested in:</label>
+          <select id="interest" name="interest">
+            <option value="adopt">Adopt</option>
+            <option value="foster">Foster</option>
+            <option value="volunteer">Volunteer</option>
+            <option value="all">All of the above</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="availability">Availability / Additional Information</label>
+          <textarea id="availability" name="availability" rows="4" placeholder="Tell us about your availability and experience" required></textarea>
+          <div class="error" id="error-availability" aria-live="polite"></div>
+        </div>
+
+        <button type="submit">Submit Application</button>
+      </form>
+
+      <p>Complete the form above to apply as a TCAR Volunteer or to foster a home.</p>
+    </section>
+
+    <section class="contact-info" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>
+        Email: <a href="mailto:TCAR@rescue.com">TCAR@rescue.com</a><br />
+        Phone: <a href="tel:+15551234567">(555) 123-4567</a>
+      </p>
+
+      <h3>Office Hours</h3>
+      <p>Open Monday-Saturday, 8 A.M.-9 P.M.</p>
+
+      <h3>Service Area</h3>
+      <p>We proudly serve the Twin City area and accept case-by-case rescues further away.</p>
+    </section>
+
+    <nav class="top">
+      <p><a href="about.html">TCAR's Story</a> · <a href="contact.html">Application Form</a> · <a href="services.html">Services We Offer</a></p>
     </nav>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Our Website</p>
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; 2026 Twin Cities Animal Rescue (TCAR) &middot; <a href="about.html">About</a></p>
   </footer>
 
   <script>
-    // Client-side validation and submit via fetch to server endpoint /submit
     (function(){
       const form = document.getElementById('volunteer-form');
       const msgs = document.getElementById('form-messages');
@@ -110,14 +145,12 @@
           valid = false;
         }
 
-        // Basic email regex (keeps it simple but effective)
         const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if(!emailRe.test(email)){
           document.getElementById('error-email').textContent = 'Please enter a valid email address.';
           valid = false;
         }
 
-        // Optional phone validation (if provided, check digits)
         if(phone.length > 0){
           const phoneDigits = phone.replace(/[^0-9]/g,'');
           if(phoneDigits.length < 7){
