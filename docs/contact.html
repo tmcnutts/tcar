@@ -16,7 +16,7 @@
 <body>
   <header>
     <h1>Contact Information</h1>
-    <h1>Volunteer/Foster Applications</h1>
+    <h1>Application to Adopt, Foster and Volunteer</h1>
     <form id="volunteer-form" action="#" method="post" novalidate>
       <div id="form-messages" aria-live="polite"></div>
 
@@ -41,14 +41,15 @@
       <div class="field">
         <label for="interest">I am interested in:</label>
         <select id="interest" name="interest">
-          <option value="volunteer">Volunteer</option>
+          <option value="adopt">Adopt</option>
           <option value="foster">Foster</option>
-          <option value="both">Both</option>
+          <option value="volunteer">Volunteer</option>
+          <option value="all">All of the above</option>
         </select>
       </div>
 
       <div class="field">
-        <label for="availability">Availability / Experience</label>
+        <label for="availability">Availability / Additional Information</label>
         <textarea id="availability" name="availability" rows="4" placeholder="Tell us about your availability and experience" required></textarea>
         <div class="error" id="error-availability" aria-live="polite"></div>
       </div>
