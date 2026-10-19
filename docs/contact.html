@@ -35,8 +35,17 @@
       .form-illustration { width: 100%; max-width:420px; }
       .apply-grid form { width: 100%; }
     }
+      .contact-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; margin-top: 1rem; }
 
+      .contact-card { background: #fff; /* optional */ padding: 0.75rem; border-radius: 6px; }
+
+      .contact-card h3 { margin-top: 0; }
+
+/* stack to 1 column on small screens */ @media (max-width: 720px) { .contact-info-grid { grid-template-columns: 1fr; } }
+    
     nav.top { margin-top: 1.25rem; text-align:center; }
+    .contact-card { border: 1px solid #e5e7eb; /* subtle neutral border / border-radius: 8px; padding: 1rem; background: #fff; box-shadow: 0 1px 2px rgba(16,24,40,0.04); / soft lift */ }
+    
   </style>
 </head>
 <body>
@@ -118,17 +127,15 @@
     </section>
 
     <section class="contact-info" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
-      <p>
-        Email: <a href="mailto:TCAR@rescue.com">TCAR@rescue.com</a><br />
-        Phone: <a href="tel:+15551234567">(555) 123-4567</a>
-      </p>
+      <div class="contact-card" aria-labelledby="hours-heading">
+  <h3 id="hours-heading">Office Hours & Service Area</h3>
+  <p><strong>Office Hours</strong><br>
+  Monday–Saturday: 8:00 A.M. – 9:00 P.M.<br>
+  Sunday: Closed</p>
 
-      <h3>Office Hours</h3>
-      <p>Open Monday-Saturday, 8 A.M.-9 P.M.</p>
-
-      <h3>Service Area</h3>
-      <p>We proudly serve the Twin City area and accept case-by-case rescues further away.</p>
+  <p><strong>Service Area</strong><br>
+  We proudly serve the Twin Cities metro and consider case-by-case rescues outside the area.</p>
+</div>
     </section>
 
     <nav class="top">
