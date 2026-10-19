@@ -54,3 +54,27 @@ footer {
   text-align: center;
   margin-top: 2rem;
 }
+/* Button and hero CTA styles (shared) */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  background: #eee;
+  text-decoration: none;
+  color: #000;
+  border: none;          /* support <button> elements as well */
+  cursor: pointer;
+}
+.btn.primary {
+  background: #0b76d1;
+  color: #fff;
+}
+
+/* hero CTA container used on multiple pages */
+.hero-cta {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+.hero-cta .btn {
+  margin: 0 0.5rem 0.5rem 0.5rem;
+}
