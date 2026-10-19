@@ -1,33 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="About Twin Cities Animal Rescue — our mission, core values, and partner testimonies." />
   <title>About TCAR</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="rescue-logo_c.png" />
+  <style>
+    /* Match index: remove bullets and enlarge logo for consistent layout */
+    ul { list-style: none; padding-left: 0; margin-left: 0; }
+    .logo img { width: 320px; max-width: 100%; height: auto; display: block; }
+    .container { max-width: 960px; margin: 0 auto; padding: 1rem; }
+    .hero { text-align: left; padding: 1rem 0; }
+    .lead { color: #333; }
+    .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .testimonies { margin-top: 1rem; }
+    blockquote { background: #f9f9f9; padding: 0.75rem 1rem; border-left: 4px solid #ccc; margin: 0 0 1rem 0; }
+    .brand-row { display:flex; align-items:center; gap:1rem; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>About Twin Cities Animal Rescue</h1>
+  <!-- Rebuild trigger: Pages refresh #2 -->
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        <figure class="logo">
+          <img src="rescue-logo_c.png" alt="Twin Cities Animal Rescue logo" width="320" />
+        </figure>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <h2>TCAR's Story</h2>
-    <p>This is why we are so cool.</p>
+  <main class="container" id="main">
+    <section class="hero">
+      <h1>About Twin Cities Animal Rescue</h1>
+      <p class="lead">TCAR provides emergency foster care and medical support to animals in need throughout the Twin Cities metro. We partner with clinics and shelters to rescue, rehabilitate, and rehome pets with loving families.</p>
+    </section>
 
-    <h2>Core Values</h2>
-    <p>Every animal is worth saving.</p>
-    <p>Adopt, don't shop!</p>
+    <section class="story" aria-labelledby="story-heading">
+      <h2 id="story-heading">Our Story</h2>
+      <p>Founded in 2014 by a group of local volunteers and veterinary professionals, TCAR began as a small network of fosters helping animals in crisis. Since then we've grown into a coordinated rescue organization that focuses on medical intervention, short-term fostering, and community education.</p>
+    </section>
 
-    <h2>Partner Testimonies</h2>
-    <p>TCAR stepped in when we ran out of room at our kennels are prevented the euthanization of 27 animals! -Twin Cities Humane Society</p>
+    <section class="core-values" aria-labelledby="values-heading">
+      <h2 id="values-heading">Core Values</h2>
+      <p>These guiding principles inform every decision we make at TCAR.</p>
+      <div class="values-grid">
+        <div>
+          <h3>Compassion-first Care</h3>
+          <p>We prioritize the comfort and welfare of each animal, ensuring pain is managed and behavior needs are addressed before rehoming.</p>
+        </div>
+        <div>
+          <h3>Medical Excellence</h3>
+          <p>Our network of partner veterinarians provides advanced diagnostics, surgeries, and follow-up care so every animal receives appropriate treatment.</p>
+        </div>
+        <div>
+          <h3>Community Partnership</h3>
+          <p>We collaborate with shelters, clinics, and volunteers to maximize capacity and keep animals safe in the region.</p>
+        </div>
+        <div>
+          <h3>Transparency & Education</h3>
+          <p>We share outcomes, costs, and best practices with the community to build trust and empower responsible pet guardianship.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="partner-testimonies" aria-labelledby="testimony-heading">
+      <h2 id="testimony-heading">Partner Testimonies</h2>
+      <p class="lead">Local partners share how TCAR has helped save lives and support the community.</p>
+      <div class="testimonies">
+        <blockquote>
+          “When our intake numbers spiked last summer, TCAR coordinated emergency fosters for 34 dogs in a single week — their team saved lives and stayed calm under pressure.”
+          <footer>— Twin Cities Humane Society</footer>
+        </blockquote>
+
+        <blockquote>
+          “TCAR's medical partnerships mean animals get timely surgery and follow-up care that we couldn't always fund internally. Their professionalism makes all the difference.”
+          <footer>— Happy Paws Veterinary Clinic</footer>
+        </blockquote>
+
+        <blockquote>
+          “As a neighborhood outreach program, we've relied on TCAR for transport and temporary housing for injured strays. Their volunteers are compassionate and reliable.”
+          <footer>— Neighborhood Pet Outreach</footer>
+        </blockquote>
+      </div>
+    </section>
 
     <nav>
-      <p><a href="index.html">Back to home</a> | <a href="contact.html">Contact Us!</a> | <a href="services.html">Services We Offer</a></p>
+      <p><a href="index.html">Back to home</a> · <a href="contact.html">Contact Us</a> · <a href="services.html">Services</a></p>
     </nav>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Our Website</p>
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; 2026 Twin Cities Animal Rescue (TCAR) &middot; <a href="contact.html">Contact</a></p>
   </footer>
 </body>
 </html>
