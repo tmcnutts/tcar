@@ -19,7 +19,23 @@
     input, select, textarea { width:100%; max-width:420px; padding:8px; }
     .btn { display:inline-block; padding:0.5rem 0.75rem; border-radius:6px; background:#eee; text-decoration:none; color:#000; }
     .btn.primary { background:#0b76d1; color:#fff; }
-    .apply form { max-width: 640px; margin: 0 auto; }
+
+    /* Two-column layout for form + illustration */
+    .apply-grid { display:flex; gap:2rem; align-items:center; justify-content:center; margin-top:1rem; }
+    .apply-grid form { flex: 1 1 520px; max-width: 640px; }
+    .form-illustration { flex: 0 0 360px; max-width: 40%; }
+    .form-illustration img { width:100%; height:auto; display:block; border-radius:8px; }
+
+    /* Center form fields inside the form */
+    .apply form .field { max-width:420px; margin: 0 auto; }
+
+    /* Responsive behavior: stack on small screens and show image above form */
+    @media (max-width: 840px) {
+      .apply-grid { flex-direction: column-reverse; }
+      .form-illustration { width: 100%; max-width:420px; }
+      .apply-grid form { width: 100%; }
+    }
+
     nav.top { margin-top: 1.25rem; text-align:center; }
   </style>
 </head>
@@ -53,47 +69,57 @@
 
     <section class="apply" aria-labelledby="apply-heading">
       <h2 id="apply-heading">Application</h2>
-      <form id="volunteer-form" action="#" method="post" novalidate>
-        <div id="form-messages" aria-live="polite"></div>
 
-        <div class="field">
-          <label for="full-name">Full Name</label>
-          <input type="text" id="full-name" name="fullName" placeholder="Your full name" required>
-          <div class="error" id="error-full-name" aria-live="polite"></div>
-        </div>
+      <div class="apply-grid">
+        <form id="volunteer-form" action="#" method="post" novalidate>
+          <div id="form-messages" aria-live="polite"></div>
 
-        <div class="field">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required>
-          <div class="error" id="error-email" aria-live="polite"></div>
-        </div>
+          <div class="field">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="fullName" placeholder="Your full name" required>
+            <div class="error" id="error-full-name" aria-live="polite"></div>
+          </div>
 
-        <div class="field">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
-          <div class="error" id="error-phone" aria-live="polite"></div>
-        </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            <div class="error" id="error-email" aria-live="polite"></div>
+          </div>
 
-        <div class="field">
-          <label for="interest">I am interested in:</label>
-          <select id="interest" name="interest">
-            <option value="adopt">Adopt</option>
-            <option value="foster">Foster</option>
-            <option value="volunteer">Volunteer</option>
-            <option value="all">All of the above</option>
-          </select>
-        </div>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+            <div class="error" id="error-phone" aria-live="polite"></div>
+          </div>
 
-        <div class="field">
-          <label for="availability">Availability / Additional Information</label>
-          <textarea id="availability" name="availability" rows="4" placeholder="Tell us about your availability and experience" required></textarea>
-          <div class="error" id="error-availability" aria-live="polite"></div>
-        </div>
+          <div class="field">
+            <label for="interest">I am interested in:</label>
+            <select id="interest" name="interest">
+              <option value="adopt">Adopt</option>
+              <option value="foster">Foster</option>
+              <option value="volunteer">Volunteer</option>
+              <option value="all">All of the above</option>
+            </select>
+          </div>
 
-        <button type="submit">Submit Application</button>
-      </form>
+          <div class="field">
+            <label for="availability">Availability / Additional Information</label>
+            <textarea id="availability" name="availability" rows="4" placeholder="Tell us about your availability and experience" required></textarea>
+            <div class="error" id="error-availability" aria-live="polite"></div>
+          </div>
 
-      <p>Complete the form above to apply as a TCAR Volunteer or to foster a home.</p>
+          <div style="text-align:center; margin-top:0.5rem;">
+            <button type="submit">Submit Application</button>
+          </div>
+        </form>
+
+        <figure class="form-illustration" aria-hidden="false">
+          <img src="rescue-volunteer_c.png" alt="Volunteer holding a rescued dog" width="360" loading="lazy" />
+          <figcaption class="visually-hidden">Volunteer with a rescued dog</figcaption>
+        </figure>
+      </div>
+
+      <p style="text-align:center; margin-top:1rem;">Complete the form above to apply as a TCAR Volunteer or to foster a home.</p>
     </section>
 
     <section class="contact-info" aria-labelledby="contact-heading">
