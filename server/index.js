@@ -5,10 +5,12 @@ require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const submissionsDir = path.join(__dirname, 'submissions');
+// allow overriding the submissions directory with an env var for private storage
+const submissionsDir = path.resolve(process.env.SUBMISSIONS_DIR || path.join(__dirname, 'submissions'));
 const adminToken = process.env.ADMIN_TOKEN || 'change-me';
 
-fs.mkdirSync(submissionsDir, { recursive: true });
+// create the submissions directory with restrictive permissions (0700)
+fs.mkdirSync(submissionsDir, { recursive: true, mode: 0o700 });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
