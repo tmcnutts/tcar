@@ -12,7 +12,7 @@
     ul { list-style: none; padding-left: 0; margin-left: 0; }
     .logo img { width: 320px; max-width: 100%; height: auto; display: block; }
     .container { max-width: 960px; margin: 0 auto; padding: 1rem; }
-    .hero { text-align: left; padding: 1rem 0; }
+    .hero { text-align: center; padding: 1rem 0; }
     .lead { color: #333; }
     .field { margin-bottom: 0.75rem; }
     label { display:block; font-weight:600; }
@@ -20,7 +20,7 @@
     .btn { display:inline-block; padding:0.5rem 0.75rem; border-radius:6px; background:#eee; text-decoration:none; color:#000; }
     .btn.primary { background:#0b76d1; color:#fff; }
     .apply form { max-width: 640px; margin: 0 auto; }
-    nav.top { margin-top: 1.25rem; }
+    nav.top { margin-top: 1.25rem; text-align:center; }
   </style>
 </head>
 <body>
@@ -32,17 +32,22 @@
           <img src="rescue-logo_c.png" alt="Twin Cities Animal Rescue logo" width="320" />
         </figure>
       </a>
-      <section class="hero">
-        <div class="hero-cta">
-          <a class="btn primary" href="index.html">Home</a>
-          <a class="btn" href="about.html">TCAR's Story</a>
-          <a class="btn" href="services.html">Services We Offer</a>
-        </div>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="index.html">Home</a></li>
+      </ul>
     </nav>
   </header>
 
   <main class="container" id="main">
-          <h1>Contact & Application</h1>
+    <section class="hero">
+      <div class="hero-cta">
+        <a class="btn primary" href="index.html">Home</a>
+        <a class="btn" href="about.html">TCAR's Story</a>
+        <a class="btn" href="services.html">Services We Offer</a>
+      </div>
+      <h1>Contact & Application</h1>
       <p class="lead">Use the form below to apply to adopt, foster, or volunteer with TCAR, or reach out for inquiries.</p>
     </section>
 
@@ -106,12 +111,7 @@
     </section>
 
     <nav class="top">
-         <section class="hero">
-        <div class="hero-cta">
-          <a class="btn primary" href="index.html">Home</a>
-          <a class="btn" href="about.html">TCAR's Story</a>
-          <a class="btn" href="services.html">Services We Offer</a>
-        </div>
+      <p><a href="about.html">TCAR's Story</a> · <a href="contact.html">Application Form</a> · <a href="services.html">Services We Offer</a></p>
     </nav>
   </main>
 
